@@ -4,12 +4,12 @@ interface ImageProp {
   resource_type: "image" | "video";
   public_id: string;
 }
-export default function MediaList({ images }: { images: ImageProp[] }) {
-  const { length } = images;
+export default function MediaList({ media }: { media: ImageProp[] }) {
+  const length = media.length;
   if (length < 3) {
     return (
       <div className="grid grid-cols-3 grid-rows-2 gap-0.5">
-        {images.map((item, i) => (
+        {media.map((item, i) => (
           <div
             className={`hover:brightness-75 transition-all cursor-pointer 
           ${length < 3 ? "col-span-3" : "col-span-1"} 
@@ -35,7 +35,7 @@ export default function MediaList({ images }: { images: ImageProp[] }) {
   } else if (length < 4) {
     return (
       <div className="grid grid-cols-6 grid-rows-8 gap-0.5">
-        {images.map((item, index) => (
+        {media.map((item, index) => (
           <div
             className={`hover:brightness-75 transition-all cursor-pointer 
             ${index == 0 ? "col-span-6" : "col-span-3"}
@@ -56,7 +56,7 @@ export default function MediaList({ images }: { images: ImageProp[] }) {
   } else if (length < 5) {
     return (
       <div className="grid grid-cols-6 grid-rows-8 gap-0.5">
-        {images.map((item, index) => (
+        {media.map((item, index) => (
           <div
             className={`hover:brightness-75 transition-all cursor-pointer
             ${index == 0 ? "col-span-6" : "col-span-2"}
@@ -78,7 +78,7 @@ export default function MediaList({ images }: { images: ImageProp[] }) {
   } else if (length < 6) {
     return (
       <div className="grid grid-cols-6 grid-rows-4 gap-0.5">
-        {images.map((item, index) => (
+        {media.map((item, index) => (
           <div
             className={`hover:brightness-75 transition-all cursor-pointer 
             ${index < 2 ? "col-span-3" : "col-span-2"}
@@ -98,7 +98,7 @@ export default function MediaList({ images }: { images: ImageProp[] }) {
   } else if (length > 5) {
     return (
       <div className="grid grid-cols-6 grid-rows-4 gap-0.5">
-        {images.slice(0, 5).map((item, index) => (
+        {media.slice(0, 5).map((item, index) => (
           <div
             className={`relative hover:brightness-75 transition-all cursor-pointer 
             ${index < 2 ? "col-span-3" : "col-span-2"}
@@ -122,4 +122,6 @@ export default function MediaList({ images }: { images: ImageProp[] }) {
     );
   }
 }
+
+
 ```
